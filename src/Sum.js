@@ -2,9 +2,8 @@ import {React, useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
-import Win from "./Win";
-import Lose from "./Lose";
 import swal from 'sweetalert';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -23,17 +22,19 @@ const useStyles = makeStyles((theme) => ({
 export default function NestedGrid({total}) {
   const classes = useStyles();
   const [select, setSelect] = useState(0)
+  
   const handleClick = (e) => {
-      setSelect(e.target.innerText)
-      popup();
+      setSelect(e.target.innerText)    
   }
-  const popup = () => {
-      if (select == total) {
+  useEffect(() => {
+    if (select == 0) {
+        swal("Welcome!", "Let's play", "info");
+    } else if (total == select) {
         swal("Good job!", "You are a WINNER!", "success");
-      } else {
+    } else {
         swal("Oops!", "Sorry, but you lost!", "error");
-      }
-  }
+    }
+  }, [select])
   return (
     <div className={classes.root}>
       <Grid container direction="column">
