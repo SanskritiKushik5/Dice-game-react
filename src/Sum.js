@@ -26,13 +26,14 @@ export default function NestedGrid({total}) {
   const handleClick = (e) => {
       setSelect(e.target.innerText)    
   }
+  
   useEffect(() => {
     if (select == 0) {
-        swal("Welcome!", "Let's play", "info");
+        swal("Welcome!", "Click on any of the dice to start playing!", "info");
     } else if (total == select) {
-        swal("Good job!", "You are a WINNER!", "success");
+        swal("Good job!", "You are a WINNER!", "success").then(()=> {window.location.reload()})
     } else {
-        swal("Oops!", "Sorry, but you lost!", "error");
+        swal("Oops!", "Sorry, but you lost. Try again before the time runs up!", "error");
     }
   }, [select])
   return (

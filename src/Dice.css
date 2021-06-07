@@ -1,0 +1,9 @@
+.dice {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+}
+.timer {
+    margin-top: 2.1rem;
+    margin-left: 5rem;
+}
