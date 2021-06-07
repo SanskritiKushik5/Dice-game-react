@@ -1,15 +1,10 @@
-import {React, useState} from 'react'
+import React from 'react'
 import ReactDice from 'react-dice-complete'
 import 'react-dice-complete/dist/react-dice-complete.css'
+import {Button} from '@material-ui/core';
+import "./Dice.css";
 
-const Dice = () => {
-    const [rollno, setRollno] = useState(0);
-    const rollnumber = (num) => {
-        setRollno(num)
-    }
-    const rollAll = () => {
-        this.reactDice.rollAll()
-      }
+const Dice = ({sum}) => {
     
     return (
         <div>
@@ -18,13 +13,12 @@ const Dice = () => {
                 rollTime={1}
                 faceColor={`#ffffe6`}
                 dotColor={`#ff3300`}
-                disableIndividual={true}
-                rollDone={rollnumber}
-                ref={dice => this.reactDice = dice}
+                disableIndividual={false}
+                rollDone={sum}
             /> 
-            <button onClick={rollAll}>Click</button>
+            <Button className="button" variant="contained">Roll!</Button>
         </div>
     )
 }
 
-export default Dice
+export default Dice;
